@@ -1,6 +1,9 @@
 {
   "name": "bloggy-blog",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.7.0"
+  }
   "description": "",
   "main": "app-server.js",
   "dependencies": {
