@@ -143,3 +143,13 @@ p, a, ul li, ol li {
             transform: scale(1);
   }
 }
+
+
+/* navigation */
+.navbar-custom .nav li a {
+  color: black;
+}
+
+.navbar-custom .nav li a:hover {
+  color: #757575;
+}
