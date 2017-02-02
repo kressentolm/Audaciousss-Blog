@@ -26,6 +26,7 @@ export default class Footer extends Component {
           <div className="row">
             <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
               <ul className="list-inline text-center">
+              {/*}
                 <li>
                   <a href={ twitter } target="_blank">
                     <span className="fa-stack fa-lg">
@@ -50,6 +51,7 @@ export default class Footer extends Component {
                     </span>
                   </a>
                 </li>
+                {*/}
               </ul>
               <p className="copyright text-muted" dangerouslySetInnerHTML={{__html: footer_text }}></p>
             </div>

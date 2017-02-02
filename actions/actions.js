@@ -30,13 +30,6 @@ export function getStore(callback){
 
     // Social
     globals.social = response.object['social']
-    metafields = globals.social.metafields
-    let twitter = _.findWhere(metafields, { key: 'twitter' })
-    globals.social.twitter = twitter.value
-    let facebook = _.findWhere(metafields, { key: 'facebook' })
-    globals.social.facebook = facebook.value
-    let github = _.findWhere(metafields, { key: 'github' })
-    globals.social.github = github.value
 
     // Nav
     const nav_items = response.object['nav'].metafields

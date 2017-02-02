@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+if(process.env.NODE_ENV === 'development') { require('../public/sass/main.scss') }
+
 // Dispatcher
 import AppDispatcher from '../dispatcher/AppDispatcher'
 

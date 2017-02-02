@@ -1,4 +1,16 @@
 // webpack.config.js
+require('babel-core/register')({
+  presets: ['es2015', 'react']
+});
+require.extensions['.scss'] = () => {
+  return;
+};
+require.extensions['.css'] = () => {
+  return;
+};
+
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 if(process.env.NODE_ENV === 'development') {
   var loaders = ['react-hot', 'babel']
 } else {
@@ -6,18 +18,33 @@ if(process.env.NODE_ENV === 'development') {
 }
 
 module.exports = {
-  devtool: 'eval',
-  entry: './app-client.js',
-  output: {
-    path: __dirname + '/public/dist',
-    filename: 'bundle.js',
-    publicPath: '/dist/'
-  },
-  module: {
-    loaders: [{
+devtool: ['eval', 'source-map'],
+entry: ['./app-client.js', './public/sass/main.scss'],
+output: {
+  path: __dirname + '/public/dist',
+  filename: 'bundle.js',
+  publicPath: '/dist/'
+},
+module: {
+  loaders: [
+    {
       test: /\.js$/,
       loaders: loaders,
       exclude: /node_modules/
-    }]
-  }
+    }, 
+    {
+      test: /\.scss$/,
+      loader: 'style!css!sass?sourceMap'
+    },
+    {
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract(
+        'style!css!'
+      )           
+    },       
+  ]
+},
+plugins: [
+  new ExtractTextPlugin('../css/main.css')
+]
 }
