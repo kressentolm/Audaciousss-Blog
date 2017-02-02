@@ -25,7 +25,7 @@
   "scripts": {
     "start": "npm run production",
     "dev": "npm run development",
-    "production": "rm -rf public/index.html && cross-env NODE_ENV=production webpack -p && cross-env NODE_ENV=production node app.js",
+    "production": "rm -rf public/index.html && NODE_ENV=production webpack -p && NODE_ENV=production node app.js",
     "webpack-dev-server": "cross-env NODE_ENV=development PORT=8080 webpack-dev-server --content-base public/ --hot --inline --devtool inline-source-map --history-api-fallback",
     "development": "cp views/index.html public/index.html && cross-env NODE_ENV=development webpack && npm run webpack-dev-server"
   },
